@@ -1,0 +1,43 @@
+# ---- hardware (EasyEDA Pro) ----
+# Working project file: large, contains unreadable edit history. Publish the .epro export instead.
+*.eprj2
+*.eprj
+# EasyEDA backup folders
+*_backup/
+
+# ---- firmware ----
+# PIC (XC8 / MPLAB X)
+build/
+dist/
+nbproject/private/
+MPLABXLog.xml
+*.hxl
+*.p1
+*.d
+*.sdb
+*.sym
+*.cmf
+*.rlf
+*.lst
+
+# RP2350 (Arduino / Pico SDK / PlatformIO)
+.pio/
+.vscode/
+*.elf
+*.uf2
+*.bin
+*.map
+*.o
+
+# Python helper tools
+__pycache__/
+*.pyc
+.venv/
+
+# ---- OS / editor ----
+Thumbs.db
+desktop.ini
+.DS_Store
+*~
+*.swp
+*.bak

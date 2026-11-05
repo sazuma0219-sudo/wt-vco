@@ -1,0 +1,30 @@
+; SPDX-License-Identifier: MIT
+; Copyright (c) 2026 Shota Azuma
+; I2S transmitter, 32 bit x 2 (L/R), standard I2S format (wtvco_audio_process.md §1.3, §1.11).
+;
+;   side-set bit 0 = LRCK (GP13)  LRCK = 0: left, 1: right
+;   side-set bit 1 = BCK  (GP14)
+;   OUT pin        = DATA (GP12)
+; (Board wiring: LRCK = BCK - 1, so the side-set base is LRCK.)
+;
+; 2 instructions per BCK -> PIO clock = 128 * fS (96 kHz: 12.288 MHz, div 12 + 53/256 at 150 MHz).
+; DATA changes while BCK is low and is sampled by the DAC on the rising edge.
+; LRCK switches one BCK before the MSB of the next word (it changes together with the previous LSB).
+;
+; Autopull, 32-bit threshold, shift left (MSB first). FIFO order: L word, then R word.
+; Regenerate the header with:  pioasm i2s_out.pio i2s_out.pio.h
+
+.program i2s_out
+.side_set 2
+
+bitloop_l:
+    out pins, 1         side 0b00
+    jmp x-- bitloop_l       side 0b10
+    out pins, 1         side 0b01   ; left LSB, LRCK -> right
+    set x, 30           side 0b11
+bitloop_r:
+    out pins, 1         side 0b01
+    jmp x-- bitloop_r      side 0b11
+    out pins, 1         side 0b00   ; right LSB, LRCK -> left
+public entry_point:
+    set x, 30           side 0b10
