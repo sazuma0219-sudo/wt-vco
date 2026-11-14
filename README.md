@@ -29,10 +29,10 @@ Copyright (c) 2026 Shota Azuma.
 You may use, modify, build and sell this design, including commercially, under these licenses.
 Please keep the copyright notice and credit the original.
 
-### Brand name: SHOT MODULES
+### Brand name: Tsumiki Modular
 
-WT VCO is designed and sold by **SHOT MODULES**.
+WT VCO is designed and sold by **Tsumiki Modular**.
 
-These licenses cover the design files only. **They grant no right to use the name "SHOT MODULES" or its logo.**
-Do not sell or promote products made from this design under that name or logo, or in a way that suggests SHOT MODULES made or endorses them.
+These licenses cover the design files only. **They grant no right to use the name "Tsumiki Modular" or its logo.**
+Do not sell or promote products made from this design under that name or logo, or in a way that suggests Tsumiki Modular made or endorses them.
 You are free to use the name "WT VCO".
